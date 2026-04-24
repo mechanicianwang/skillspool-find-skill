@@ -1,18 +1,18 @@
 ---
-name: skillkit-find-skill
-description: Search and discover Agent Skills from the SkillKit directory. Use when the user needs a new agent skill, wants to find tools for a specific task, or asks you to search for skills online. Not for local/already-installed skills.
+name: skillspool-find-skill
+description: Search and discover Agent Skills from the Skills Pool directory. Use when the user needs a new agent skill, wants to find tools for a specific task, or asks you to search for skills online. Not for local/already-installed skills.
 version: "1.0.0"
 license: MIT
 metadata:
-  homepage: "https://skillkit.tech"
+  homepage: "https://skillspool.org"
   openclaw:
     emoji: "🔍"
-    homepage: "https://skillkit.tech"
+    homepage: "https://skillspool.org"
 ---
 
-# SkillKit — Find Agent Skills
+# Skills Pool — Find Agent Skills
 
-SkillKit is an open directory of AI Agent Skills. Use the search API below to find skills for any task the user needs.
+Skills Pool is an open directory of AI Agent Skills. Use the search API below to find skills for any task the user needs.
 
 ## When to use
 
@@ -26,7 +26,7 @@ SkillKit is an open directory of AI Agent Skills. Use the search API below to fi
 **One endpoint handles everything:**
 
 ```
-GET https://skillkit.tech/api/v1/skills/search?q={keywords}&limit=10
+GET https://skillspool.org/api/v1/skills/search?q={keywords}&limit=10
 ```
 
 ### Request
@@ -62,7 +62,7 @@ GET https://skillkit.tech/api/v1/skills/search?q={keywords}&limit=10
 - **`stars`** — GitHub stars of the source repository. Higher = more community trust.
 - **`description`** — What the skill does. Use this to match against user intent.
 - **`categories`** — Skill categories. Useful for understanding scope.
-- **`slug`** — Unique identifier. Use to build the detail page URL: `https://skillkit.tech/skills/{slug}`
+- **`slug`** — Unique identifier. Use to build the detail page URL: `https://skillspool.org/skills/{slug}`
 - **`author`** — Who created the skill. Well-known authors (e.g. `lobehub`, `anthropics`) are more trustworthy.
 
 ## Workflow
@@ -76,7 +76,7 @@ GET https://skillkit.tech/api/v1/skills/search?q={keywords}&limit=10
 4. **Recommend up to 5 skills** to the user. For each, provide:
    - Skill name and a one-line summary of why it fits
    - Star count as a trust indicator
-   - Link: `https://skillkit.tech/skills/{slug}`
+   - Link: `https://skillspool.org/skills/{slug}`
    - Source repository if available
 5. **If the user picks one**, help them install it using their agent's skill installation method (e.g. `npx add-skill`, `git clone`, or manual copy).
 
@@ -85,7 +85,7 @@ GET https://skillkit.tech/api/v1/skills/search?q={keywords}&limit=10
 User: "I need a skill for code review"
 
 ```bash
-curl "https://skillkit.tech/api/v1/skills/search?q=code+review&limit=10"
+curl "https://skillspool.org/api/v1/skills/search?q=code+review&limit=10"
 ```
 
 Response includes skills like:
@@ -109,7 +109,7 @@ Response includes skills like:
 - Any mention of requiring API keys, tokens, or credentials that seem unnecessary for the stated purpose
 
 ### If the user wants to inspect further
-Direct them to the skill detail page: `https://skillkit.tech/skills/{slug}` — this shows the full skill content, source repository link, and related skills.
+Direct them to the skill detail page: `https://skillspool.org/skills/{slug}` — this shows the full skill content, source repository link, and related skills.
 
 ### After installation — what to check
 Once a skill file is downloaded, **read the SKILL.md content** before using it. Look for:
